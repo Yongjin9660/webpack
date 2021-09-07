@@ -1,5 +1,43 @@
 # webpack 구성 (Babel + SASS + source-map)
 
+## Version
+
+```
+Node.js : v14.17.3
+npm : v7.20.1
+husky : v.7.0.2
+```
+
+```
+Babel
+- @babel/cli : v7.15.4
+- @babel/core : v7.15.5
+- @babel/node : v7.15.4
+- @babel/plugin-proposal-class-properties : v7.14.5
+- @babel/preset-env : v7.15.4
+- @babel/polyfill: v7.12.1
+```
+
+```
+Webpack
+- webpack : v5.52.0
+- webpack-cli : v4.8.0
+```
+
+```
+Webpack Plugin
+- node-sass : v6.0.1
+- babel-loader : v8.2.2
+- html-webpack-plugin : v5.3.2
+- css-loader : v6.2.0
+- sass-loader : v12.1.0
+- style-loader : v3.2.1
+- mini-css-extract-plugin : v2.2.2
+- file-loader : v6.2.0
+- clean-webpack-plugin : v4.0.0
+
+```
+
 ## Usage
 
 ```
