@@ -1,20 +1,14 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  // enntry file
   entry: ['@babel/polyfill', './src/js/main.js', './src/sass/main.scss'],
-  // 컴파일 + 번들링된 js 파일이 저장될 경로와 이름 지정
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/bundle.js',
+    filename: 'bundle.js',
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    // 컴파일 + 번들링 CSS 파일이 저장될 경로와 이름 지정
-    new MiniCssExtractPlugin({ filename: 'css/style.css' }),
-  ],
   module: {
     rules: [
       {
@@ -30,15 +24,28 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.png$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader', // translates CSS into CommonJS
-          'sass-loader', // compiles Sass to CSS, using Node Sass by default
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]?[hash]',
+            },
+          },
         ],
         exclude: /node_modules/,
       },
     ],
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({ filename: 'css/style.css' }),
+    new HtmlWebpackPlugin({ template: './index.html' }),
+  ],
   devtool: 'source-map',
   mode: 'development',
 };
