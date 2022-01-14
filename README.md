@@ -5,7 +5,6 @@
 ```
 Node.js : v14.17.3
 npm : v7.20.1
-husky : v.7.0.2
 ```
 
 ```
@@ -42,15 +41,10 @@ Webpack Plugin
 
 ```
 npm install     # 의존성 설치
-eslint --init   # eslint 설정
 npm run build   # webpack을 통한 bundle 파일 생성
+npm run dev     # webpack --watch 옵션을 통해 실행
 ```
 
 ## 실행화면
 
 <img src="https://user-images.githubusercontent.com/55246584/132294993-1a967aac-de83-44e8-9cbf-c4dbb94cdf8e.png" width = "600" height="600" />
-
-## 참고사항
-
-- src 디렉토리의 js, sass, img 처리
-- husky의 pre-commit을 사용하여 commit 전 eslint를 검사 실행
